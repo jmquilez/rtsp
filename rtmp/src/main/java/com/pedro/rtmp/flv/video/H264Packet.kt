@@ -60,6 +60,7 @@ class H264Packet(private val videoPacketCallback: VideoPacketCallback) {
 
   fun createFlvVideoPacket(byteBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {
     Log.d("codepixles", "createFlvVideoPacket, here we are doing it H264Packet.java");
+    Log.d("camera2streaming", "4: createFlvVideoPacket, common, creating packet to send over rtmp connection, \uD83D\uDEEB\uD83D\uDEEB good job, H264Packet.kt")
     byteBuffer.rewind()
     val ts = info.presentationTimeUs / 1000
     //header is 5 bytes length:

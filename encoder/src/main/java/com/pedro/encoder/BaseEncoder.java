@@ -56,6 +56,7 @@ public abstract class BaseEncoder implements EncoderCallback {
   }
 
   public void start() {
+    Log.d("camera2streaming", "3: start BaseEncoder.java");
     if (presentTimeUs == 0) {
       presentTimeUs = System.nanoTime() / 1000;
     }
@@ -64,6 +65,7 @@ public abstract class BaseEncoder implements EncoderCallback {
   }
 
   private void initCodec() {
+    Log.d("camera2streaming", "3.1: initCodec BaseEncoder.java");
     handlerThread = new HandlerThread(TAG);
     handlerThread.start();
     Handler handler = new Handler(handlerThread.getLooper());
@@ -155,6 +157,7 @@ public abstract class BaseEncoder implements EncoderCallback {
   protected abstract MediaCodecInfo chooseEncoder(String mime);
 
   protected void getDataFromEncoder() throws IllegalStateException {
+    Log.d("camera2streaming", "3.2: getDataFromEncoder BaseEncoder.java");
     if (isBufferMode) {
       int inBufferIndex = codec.dequeueInputBuffer(0);
       if (inBufferIndex >= 0) {
@@ -201,6 +204,7 @@ public abstract class BaseEncoder implements EncoderCallback {
 
   private void processOutput(@NonNull ByteBuffer byteBuffer, @NonNull MediaCodec mediaCodec,
       int outBufferIndex, @NonNull MediaCodec.BufferInfo bufferInfo) throws IllegalStateException {
+    Log.d("camera2streaming", "3.4: processOutput BaseEncoder.java");
     checkBuffer(byteBuffer, bufferInfo);
     Log.d("codepixles", "processOutput BaseEncoder.java");
     sendBuffer(byteBuffer, bufferInfo);
@@ -230,6 +234,7 @@ public abstract class BaseEncoder implements EncoderCallback {
   @Override
   public void outputAvailable(@NonNull MediaCodec mediaCodec, int outBufferIndex,
       @NonNull MediaCodec.BufferInfo bufferInfo) throws IllegalStateException {
+    Log.d("camera2streaming", "3.3: outputAvailable, not in buffer mode, bytebuffer obtention, BaseEncoder.java");
     ByteBuffer byteBuffer;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       byteBuffer = mediaCodec.getOutputBuffer(outBufferIndex);

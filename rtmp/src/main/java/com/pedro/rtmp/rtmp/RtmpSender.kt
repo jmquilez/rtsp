@@ -73,6 +73,7 @@ class RtmpSender(private val connectCheckerRtmp: ConnectCheckerRtmp,
 
   fun sendVideoFrame(h264Buffer: ByteBuffer, info: MediaCodec.BufferInfo) {
     Log.d("codepixles", "sendVideoFrame RtmpSender.kt");
+    Log.d("camera2streaming", "3.9: sendVideoFrame, common, RtmpSender.kt")
     if (running) h264Packet.createFlvVideoPacket(h264Buffer, info)
   }
 

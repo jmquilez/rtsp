@@ -101,6 +101,7 @@ public class VideoEncoder extends BaseEncoder implements GetCameraData {
     try {
       if (encoder != null) {
         Log.i(TAG, "Encoder selected " + encoder.getName());
+        Log.d("camera2streaming", "3.0: codec definition, common with Display, VideoEncoder.java");
         codec = MediaCodec.createByCodecName(encoder.getName());
         if (this.formatVideoEncoder == FormatVideoEncoder.YUV420Dynamical) {
           this.formatVideoEncoder = chooseColorDynamically(encoder);
@@ -508,6 +509,7 @@ public class VideoEncoder extends BaseEncoder implements GetCameraData {
   protected void sendBuffer(@NonNull ByteBuffer byteBuffer,
       @NonNull MediaCodec.BufferInfo bufferInfo) {
     Log.d("codepixles", "sendBuffer VideoEncoder.java");
+    Log.d("camera2streaming", "3.5: sendBuffer, common with Display, VideoEncoder.java");
     getVideoData.getVideoData(byteBuffer, bufferInfo);
   }
 }

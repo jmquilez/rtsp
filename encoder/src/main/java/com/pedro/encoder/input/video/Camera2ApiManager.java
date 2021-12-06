@@ -264,6 +264,7 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
   }
 
   public void openLastCamera() {
+    Log.d("camera2streaming", "2.1: openLastCamera Camera2ApiManager.java");
     if (cameraId == -1) {
       openCameraBack();
     } else {
@@ -684,6 +685,7 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
 
   @SuppressLint("MissingPermission")
   public void openCameraId(Integer cameraId) {
+    Log.d("camera2streaming", "2.2 openCameraId Camera2ApiManager.java");
     this.cameraId = cameraId;
     if (prepared) {
       HandlerThread cameraHandlerThread = new HandlerThread(TAG + " Id = " + cameraId);

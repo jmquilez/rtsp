@@ -578,6 +578,7 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
    * startPreview for you to resolution seated in @prepareVideo.
    */
   public void startStream(String url) {
+    Log.d("camera2streaming", "1: startStream Camera2Base.java");
     streaming = true;
     if (!recordController.isRunning()) {
       startEncoders();
@@ -589,6 +590,7 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
   }
 
   private void startEncoders() {
+    Log.d("camera2streaming", "2: startEncoders Camera2Base.java");
     videoEncoder.start();
     if (audioInitialized) audioEncoder.start();
     prepareGlView();
@@ -945,6 +947,7 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
 
   @Override
   public void getVideoData(ByteBuffer h264Buffer, MediaCodec.BufferInfo info) {
+    Log.d("camera2streaming", "3.6: getVideoData, common with Display, Camera2Base.java");
     fpsListener.calculateFps();
     recordController.recordVideo(h264Buffer, info);
     if (streaming) getH264DataRtp(h264Buffer, info);

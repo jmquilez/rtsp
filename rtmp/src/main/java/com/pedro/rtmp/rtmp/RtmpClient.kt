@@ -493,6 +493,7 @@ class RtmpClient(private val connectCheckerRtmp: ConnectCheckerRtmp) {
 
   fun sendVideo(h264Buffer: ByteBuffer, info: MediaCodec.BufferInfo) {
     if (!commandsManager.videoDisabled) {
+      Log.d("camera2streaming", "3.8: sendVideo, common with Display, RtmpClient.kt")
       Log.d("codepixles", "sendVideo, RtmpClient.kt")
       rtmpSender.sendVideoFrame(h264Buffer, info)
     }

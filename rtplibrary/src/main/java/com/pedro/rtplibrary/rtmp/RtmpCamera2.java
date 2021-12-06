@@ -22,6 +22,8 @@ import android.os.Build;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.TextureView;
 
@@ -227,6 +229,7 @@ public class RtmpCamera2 extends Camera2Base {
 
   @Override
   protected void getH264DataRtp(ByteBuffer h264Buffer, MediaCodec.BufferInfo info) {
+    Log.d("camera2streaming", "3.7: getH264DataRtp, common with Display, RtmpCamera2.java");
     rtmpClient.sendVideo(h264Buffer, info);
   }
 
