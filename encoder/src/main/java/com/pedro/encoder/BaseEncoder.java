@@ -206,6 +206,7 @@ public abstract class BaseEncoder implements EncoderCallback {
       int outBufferIndex, @NonNull MediaCodec.BufferInfo bufferInfo) throws IllegalStateException {
     Log.d("camera2streaming", "3.4: processOutput BaseEncoder.java");
     Log.d("bufferflags", String.valueOf(bufferInfo.flags));
+    Log.d("bufferflags", "test");
     Log.d("pts", String.valueOf(bufferInfo.presentationTimeUs));
     checkBuffer(byteBuffer, bufferInfo);
     Log.d("codepixles", "processOutput BaseEncoder.java");
